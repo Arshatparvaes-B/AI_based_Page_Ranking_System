@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Ranker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #search-container {
+            text-align: center;
+        }
+
+        #logo {
+            margin-bottom: 1cm;
+        }
+
+        #search-box {
+            width: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 25px; /* Curved edges */
+            font-size: 16px;
+        }
+
+        #search-button {
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1cm; /* 1cm gap between search bar and button */
+        }
+
+        #search-button:hover {
+            background-color: #357ae8;
+        }
+
+        #search-results {
+            margin-top: 20px;
+        }
+
+        #open-new-tab {
+            position: absolute;
+            top: 10px; /* Adjust the top position as needed */
+            right: 10px; /* Adjust the right position as needed */
+            text-decoration: none;
+            background-color: #4285f4;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="search-container">
+        <div id="logo">
+            <img src="search.png" alt="Your Logo" width="300" height="100">
+        </div>
+        <!-- <form action="javascript:void(0);" onsubmit="handleSearch()"> -->
+            <form action="searchresult.html" method="get">
+            <input type="text" name="q" id="search-box" placeholder="Search the web">
+            <br>
+            <input type="submit" value="Search" id="search-button">
+        </form>
+        <div id="search-results">
+            <!-- Display search results here -->
+        </div>
+    </div>
+
+    <a href="javascript:void(0);" onclick="openInNewTab()" id="open-new-tab">Open New Tab</a>
+
+
+    <script>
+        function handleSearch() {
+            // Get the search query from the input element
+            var searchQuery = document.getElementById('search-box').value;
+            
+            // Prevent the form from actually submitting
+            return false;
+        }
+
+        function openInNewTab() {
+            var searchQuery = document.getElementById('search-box').value;
+            var newTabUrl = window.location.href + '?q=' + encodeURIComponent(searchQuery);
+            window.open(newTabUrl, '_blank');
+        }
+
+    </script>
+
+</body>
+</html>
